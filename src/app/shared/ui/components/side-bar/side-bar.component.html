@@ -1,0 +1,24 @@
+<aside class="flex h-screen w-full flex-col border-r border-gray-200 bg-white">
+  <!-- Logo / Título -->
+  <div class="flex h-16 w-full justify-center items-center border-b border-gray-200 px-6">
+    <h1 class="text-lg font-bold text-gray-800 ">Dan - Laboratorio</h1>
+  </div>
+
+  <nav class="flex-1 space-y-1 overflow-y-auto p-3">
+    @for (link of links(); track link.path) {
+      <a
+        [routerLink]="link.path"
+        routerLinkActive="bg-orange-100 text-orange-700"
+        [routerLinkActiveOptions]="{ exact: false }"
+        class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900"
+      >
+        <span>{{ link.title }}</span>
+      </a>
+    }
+  </nav>
+
+  <!-- Footer -->
+  <div class="border-t border-gray-200 p-4 text-xs text-gray-500">
+    © 2026 Dragon Ball
+  </div>
+</aside>

@@ -1,0 +1,12 @@
+<section class="h-screen flex flex-col">
+@if(isLoading()){
+  <div class="">
+    <span>CARGANDO DATA...</span>
+  </div>
+  }@else {
+    <app-sayajin [character]="sayajinData()" class="w-full h-[40%]"/>
+    @if (sayajinData()?.transformations.length) {
+      <app-carrousel [images]="sayajinData().transformations" />
+    }
+  }
+</section>

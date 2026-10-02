@@ -1,0 +1,19 @@
+<div class="w-[95%]  mx-auto mt-10 h-[90%] flex flex-row flex-wrap justify-between overflow-y-scroll ">
+  @for (character of sayajins(); track $index) {
+    <div class="card relative shadow-lg lg:w-[32%] md:w-[48%] w-[100%]  bg-white h-[250px]  my-[10px] rounded-lg flex flex-col text-center justify-center items-center">
+      <div class="header">
+        {{character.name}}
+      </div>
+      <div class="img flex">
+        <img (click)="viewDetail(character.id)" [src]="character.image" class="cursor-pointer w-[100px] h-[150px] hover:w-[115px]  hover:h-[165px]" [alt]="character.image">
+      </div>
+      <div class="body">
+        KI: {{character.ki}}
+      </div>
+      <div class="footer">
+        RAZA: {{character.race}}
+      </div>
+      <button type="button" href="" class="absolute top-0 right-0 pr-[20px] cursor-pointer" (click)="saveToFavs(character)" title="Agregar a favs"><i class="fas fa-heart"></i></button>
+    </div>
+  }
+</div>

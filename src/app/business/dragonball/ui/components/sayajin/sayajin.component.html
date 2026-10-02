@@ -1,0 +1,30 @@
+<a routerLink="/" class="float-right pr-[50px] underline">Regresar</a>
+<div class="flex w-full h-full justify-center items-center">
+    <div class="card shadow-lg w-[70%] bg-white h-[350px] my-[10px] rounded-lg flex flex-row  items-center">
+      <div class="img  w-[30%] h-full flex flex-row justify-center items-center">
+        <img [src]="character().image" class="cursor-pointer w-[100px] h-[250px] " [alt]="character().image">
+      </div>
+      <div class="info  w-[70%] h-full">
+        <div class="name h-[10%] pl-[10px]">
+          NOMBRE: {{character().name}}
+        </div>
+        <div class="desc  h-[65%] overflow-y-scroll px-[10px]">
+          {{character().description}}
+        </div>
+        <div class="extra   h-[25%] flex flex-row">
+          <div class="w-1/2 flex flex-col p-[5px]">
+            <span>RAZA: {{character().race}}</span>
+            <span>GENERO: {{character().gender === "MALE" ? "Hombre" : "Mujer"}}</span>
+            <span>KI: {{character().ki}}</span>
+          </div>
+          <div class="w-1/2 flex flex-col p-[5px]">
+            <span>GRUPO: {{character().race}}</span>
+            <span>PLANETA: {{character().originPlanet.name}}</span>
+            <span>MAX KI: {{character().maxKi}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+

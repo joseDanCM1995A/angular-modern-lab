@@ -1,0 +1,30 @@
+<aside class="relative h-screen w-[100%] flex-col border-r border-gray-200 bg-white ">
+  <!-- Logo / Título -->
+   @if(showFavs()){
+    <div class="transition-all transition-discrete! h-screen overflow-scroll bg-gray-200 ">
+      <div class=" flex h-16 w-full justify-center items-center border-b border-gray-200 px-6">
+        <h1 class="text-lg font-bold text-gray-800 ">FAVORITOS</h1>
+      </div>
+
+      <nav class="flex-1 space-y-1 overflow-y-auto p-3">
+        @for (character of favsService.favs(); track character.id) {
+          <div class="card relative shadow-lg w-full bg-white h-[250px]  my-[10px] rounded-lg flex flex-col text-center justify-center items-center">
+            <div class="header">
+              {{character.name}}
+            </div>
+            <div class="img flex">
+              <img [src]="character.image" class="cursor-pointer w-[100px] h-[150px] hover:w-[115px]  hover:h-[165px]" [alt]="character.image">
+            </div>
+            <button type="button" title="Eliminar" class="absolute top-0 right-0 pr-[5px] cursor-pointer"  (click)="removeFromFavs(character)">x</button>
+          </div>
+        }
+      </nav>
+    </div>
+   }
+
+  <button (click)="showFavsSection()" class=" w-max flex absolute items-center gap-2 bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded shadow-md transition right-0 top-[90%] mr-[100%]">
+    <i class="fas fa-heart"></i>
+    <span>Ver favs [{{favsService.favs().length}}]</span>
+  </button>
+
+</aside>

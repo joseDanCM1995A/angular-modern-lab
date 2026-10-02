@@ -1,0 +1,15 @@
+<section class="h-screen flex flex-col relative">
+<app-filters (params)="filter($event)"/>
+@if(isLoading()){
+  <div class="">
+    <span>CARGANDO DATA...</span>
+  </div>
+  }@else {
+    <app-sayajins-list [sayajins]="sayajinData().items" class="w-full  border border-gray-200  shadow-md h-[80%]"/>
+    @if('meta' in sayajinData()){
+      <app-paginator [metaInput]="sayajinData().meta" (newPage)="changePage($event)" class="w-full h-[10%]"/>
+    }
+  }
+  <app-favs-bar class="absolute right-0 h-screen"/>
+</section>
+
